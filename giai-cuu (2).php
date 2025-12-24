@@ -1,8 +1,8 @@
 <?php 
 session_start(); 
-include 'db.php'; // Kết nối Database để lấy câu hỏi
+include 'db.php'; 
 
-// --- PHP: LẤY 10 CÂU HỎI NGẪU NHIÊN TỪ DATABASE ---
+//  PHP: LẤY 10 CÂU HỎI NGẪU NHIÊN TỪ DATABASE
 $db_questions = [];
 if(isset($conn)) {
     $sql = "SELECT * FROM questions ORDER BY RAND() LIMIT 10";
@@ -27,7 +27,6 @@ $json_questions = json_encode($db_questions);
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body { margin: 0; overflow: hidden; font-family: 'Nunito', sans-serif; background: #87CEEB; }
-        /* GIỮ NGUYÊN CSS CŨ */
         .header-ui { position: absolute; top: 10px; left: 10px; right: 10px; display: flex; justify-content: space-between; z-index: 100; }
         .stats-box { background: rgba(255,255,255,0.9); padding: 10px 20px; border-radius: 15px; border: 3px solid #2c3e50; font-weight: 900; display: flex; align-items: center; gap: 10px; }
         .btn-circle { background: #fff; padding: 10px; border-radius: 50%; border: 3px solid #2c3e50; color: #333; text-decoration: none; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; cursor: pointer; transition: 0.2s; }
