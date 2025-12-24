@@ -1,7 +1,6 @@
 <?php
 session_start();
-include 'db.php'; // Bắt buộc phải có file này để kết nối database
-
+include 'db.php'; 
 $message = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -16,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        // Kiểm tra mật khẩu (đã được mã hóa lúc đăng ký)
+        // Kiểm tra mật khẩu 
         if (password_verify($pass, $row['password'])) {
             // Đăng nhập thành công -> Lưu thông tin
             $_SESSION['user_id'] = $row['id'];
